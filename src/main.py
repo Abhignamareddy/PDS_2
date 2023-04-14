@@ -1,10 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-
-Original file is located at
-    https://colab.research.google.com/drive/1cvw1Lzip2ikzABXwlq1reyJb_MeYhMNH
-"""
-
 # importing necessary libraries
 import pandas as pd
 import numpy as np
@@ -15,7 +9,7 @@ import matplotlib.pyplot as plt
 np.random.seed(123)
 
 # reading the data file
-data = pd.read_csv('diabetes.csv')
+data = pd.read_csv("../data_raw/diabetes.csv")
 
 # taking a random sample of 25 observations
 sample = data.sample(n=25)
@@ -37,6 +31,7 @@ plt.legend()
 plt.xlabel('Glucose')
 plt.ylabel('Frequency')
 plt.title('Histogram of Glucose Values')
+plt.savefig('../results/result1.png')
 plt.show()
 
 # creating a scatter plot of glucose values against patient IDs for the population and the sample
@@ -48,6 +43,7 @@ plt.legend()
 plt.xlabel('Patient IDs')
 plt.ylabel('Glucose')
 plt.title('Scatter Plot of Glucose Values')
+plt.savefig('../results/result2.png')
 plt.show()
 
 """The above code first imports the necessary libraries such as pandas, numpy, random, and matplotlib. It then sets a seed for reproducibility using numpy's random.seed() function.
@@ -61,12 +57,9 @@ The code then creates two charts - a histogram of glucose values and a scatter p
 Finally, the code displays the two charts using matplotlib's show() function.
 """
 
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 
 # Load the diabetes dataset as a pandas dataframe
-df = pd.read_csv("diabetes.csv")
+df = pd.read_csv("../data_raw/diabetes.csv")
 
 # Set seed for reproducibility
 np.random.seed(42)
@@ -87,19 +80,13 @@ plt.boxplot([df['BMI'], sample['BMI']])
 plt.xticks([1, 2], ['Population', 'Sample'])
 plt.ylabel('BMI')
 plt.title('Comparison of BMI distribution between population and sample')
+plt.savefig('../results/result3.png')
 plt.show()
 
 """This code first loads the diabetes dataset as a pandas dataframe. It then sets a seed for reproducibility, takes a random sample of 25 observations, and calculates the 98th percentile of BMI for both the population and the sample. Finally, it creates a box plot to visualize the distribution of BMI in the population and the sample.
 
 The output of this code will print the 98th percentile of BMI for both the population and the sample. Additionally, it will show a box plot comparing the distribution of BMI between the population and the sample. The box plot will have two boxes side by side, one representing the population and one representing the sample, with the y-axis showing BMI values.
 """
-
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Load the diabetes dataset as a pandas dataframe
-df = pd.read_csv("diabetes.csv")
 
 # Set seed for reproducibility
 np.random.seed(42)
@@ -143,6 +130,7 @@ axs[2].hist(percentile_arr)
 axs[2].set_xlabel('50th percentile')
 axs[2].set_ylabel('Frequency')
 axs[2].set_title('Distribution of 50th percentile of BloodPressure')
+plt.savefig('../results/result4.png')
 plt.show()
 
 """This code first loads the diabetes dataset as a pandas dataframe. It then sets a seed for reproducibility and creates empty arrays to store the mean, standard deviation, and 50th percentile of BloodPressure for each bootstrap sample. It then creates 500 bootstrap samples of 150 observations each and calculates the mean, standard deviation, and 50th percentile of BloodPressure for each sample. Finally, it calculates the mean, standard deviation, and 50th percentile of BloodPressure for the population and creates histograms to visualize the distribution of the mean, standard deviation, and 50th percentile of BloodPressure for the bootstrap samples.
